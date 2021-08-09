@@ -263,6 +263,48 @@ def Get_archivo(a):
     return arch
 
 
+
+
+#-------------------------------------------------------
+def Get_Line(arch, Numero):
+    if os.path.exists(arch):
+        f = open (arch,'r')
+        lineas = f.readlines()
+        f.close()
+        return lineas[Numero-1] # revisar si comensar en 1 o 0
+    else:
+        return ""
+
+#-------------------------------------------------------
+def Clear_Line(arch, Numero):
+    if os.path.exists(arch):
+        f = open (arch,'r')
+        lineas = f.readlines()
+        f.close()
+        lineas.pop(Numero)
+        #print lineas
+        f2 =open(arch, "w")
+        f2.write(''.join(lineas) )
+        f2.close()
+
+#-------------------------------------------------------
+def Update_Line(arch, Numero, Dato): #incluir el/n
+    if os.path.exists(arch):
+        f = open (arch,'r')
+        lineas = f.readlines()
+        f.close()
+        lineas[Numero-1]= Dato
+        #print lineas
+        f2 =open(arch, "w")
+        f2.write(''.join(lineas) )
+        f2.close()
+
+#-------------------------------------------------------
+
+
+
+
+
 def Borrar_Archivo(a):
 
     arch = Get_archivo(a)
@@ -514,6 +556,7 @@ def PIN_Usado(ID1, PIN,Npines): #revicion de pines
 
 def Verificar_ID_Tipo_3(Pal): #mejorar por que podia pasa cualquiera
     global N_A_Servidor
+    contador_line=0
     #print Pal
     archivo = open(N_A_Servidor, 'r')
     archivo.seek(0)
@@ -526,15 +569,30 @@ def Verificar_ID_Tipo_3(Pal): #mejorar por que podia pasa cualquiera
         #Rut = ''#s2[0]
         if 	s ==	Pal:
             archivo.close()
-            return s
+            return contador_line,s
+        else:   contador_line +=1
+
+
     archivo.close()
-    return -1
+    return -1, -1
 
 
 def Estado_Usuario_Tipo_3(Pal,P_I):
+    global N_A_Servidor
+    # tipos de una solo lecturas
 
-    ID_1 = Verificar_ID_Tipo_3(Pal)
-    N_veri = Verificar_acceso_Tipo_3(Pal) # cambiar para acesoss multiples
+    PosY, ID_1 = Verificar_ID_Tipo_3(Pal)     #Verificar que este en tabla servidor y posicion
+                                        #Eliminar de tabla servidor y dar entarda
+    #print PosY
+    #print ID_1
+    if PosY != -1:
+        Clear_Line(N_A_Servidor, PosY)
+        return ID_1, 'Access granted-E'#print 'Entrada'
+    else:
+        return ID_1, 'Denegado'		   #print 'NO existe'
+
+
+    #N_veri = Verificar_acceso_Tipo_3(Pal) # cambiar para acesoss multiples
     #print 'ID: '
     #print ID_1
     #print 'Veces: '
@@ -551,7 +609,7 @@ def Estado_Usuario_Tipo_3(Pal,P_I):
     """
 
     #if ID_1 == -1 and  N_veri == 0:					return ID_1, 'Denegado'		   #print 'NO existe'
-    if ID_1 != -1  and  N_veri == 0:     return ID_1, 'Access granted-E'#print 'Entrada'
+    #if ID_1 != -1  and  N_veri == 0:     return ID_1, 'Access granted-E'#print 'Entrada'
     #if ID_1 != -1 and  N_veri == 2:					return ID_1, 'Access granted-S'#print 'Salida'
 
     return ID_1, 'Denegado'		   #print 'NO existe'
@@ -602,3 +660,5 @@ def Verificar_aforo():
 
 
 #print 'Total: ' + str(Verificar_aforo())
+
+#Estado_Usuario_Tipo_3('DbxNa6ByqpAy4qd2Kj1qoQ==.DvUQIZ7TN33oIeVielrusw==.1',1)

@@ -517,7 +517,7 @@ def Respuesta_Sin_Internet(QR_RUT, T_A,  IDQ_Encrip, QR):
                     #print 'vencido'
                     Decision_Torniquete ('Denegar',QR,"",T_A,'1','1')
                 else:
-                    print 'a tiempo'
+                    #print 'a tiempo'
                     IDQ_Encrip, Resp = Estado_Usuario_Tipo_3(ID,1)
                     if PP_Mensajes:
                         print '-----Formato 3: resolviendo respuesta '
@@ -980,7 +980,7 @@ Log_Reinicio()
 if PP_Mensajes:
     print 'LISTO: ' + Hora()
 
-Intentos_Actualizar_Usuarios(3)
+#Intentos_Actualizar_Usuarios(3)
 
 #A_Actualizacion_Firmware =1
 #Procedimiento_Actualizar_Firmware()

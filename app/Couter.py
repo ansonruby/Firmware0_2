@@ -65,7 +65,7 @@ def add_user_counter(usuario):
     if len(s) >=4:
         ID = s[1] + '.'+ s[2]  + '.'+ s[3]
 
-        Respuesta = Verificar_ID_Tipo_3(ID)
+        PosY, Respuesta = Verificar_ID_Tipo_3(ID)
         #print Respuesta
 
         if Respuesta == -1:

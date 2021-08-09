@@ -23,7 +23,7 @@ Tiempo                  = Control_Fecha.T_Actual
 #               constantes del aplicativo
 #-----------------------------------------------
 CE_V=1          # 0: servidor de prueba 1: las direciones del aplicativo
-P_Mensajes=1    # 0: NO print  1: Print
+P_Mensajes=0    # 0: NO print  1: Print
 
 CE_url = "http:"
 
