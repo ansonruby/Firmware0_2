@@ -56,10 +56,14 @@ def Get_Switch():
 #-----------------------------------------------------------
 def Eventos_Boton_Salida():
     global Status_Hilo_activo
-    a= Get_Switch() #GPIO.input(CC_Pin_UPS)
+    
+    #a= Get_Switch() #GPIO.input(CC_Pin_UPS)
     #print 'Buttom:'+str(a)
     if Get_Switch() == '1' and Status_Hilo_activo == 0:
-        Activar_Hilos_Boton()
+        time.sleep(1.0)
+        precionado= Get_Switch()
+        if precionado == '1' and Status_Hilo_activo == 0:        
+            Activar_Hilos_Boton()
 
 #-----------------------------------------------------------
 def Activar_Hilos_Boton():
@@ -99,10 +103,17 @@ def Proceso_Salir_Por_Boton():
 
     #esperar que lo suelten
     while 1:
-        time.sleep(0.05)
-        if Get_Switch() == '0':
-            #print 'stop'
+        time.sleep(0.1)
+        if Get_Switch() != '1':
             break
+        
+    while 1:
+        time.sleep(0.1)
+        if Get_Switch() == '0':
+            time.sleep(1.5)
+            if Get_Switch() == '0':
+                #print 'stop'
+                break
     Status_Hilo_activo = 0
 
 
