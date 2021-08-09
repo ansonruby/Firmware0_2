@@ -22,7 +22,7 @@ Escrivir_nuevo          = lib.Control_Archivos.Escrivir_nuevo
 
 
 
-PP_Mensajes = 0
+PP_Mensajes = 1
 
 
 N_Intentos = 0
@@ -58,13 +58,10 @@ def Enviar_usuarios_Autorizados_Sin_Internet():
         if PP_Mensajes:
             print Ev
         T_A = Tiempo()
-<<<<<<< HEAD
+
         ta=Envio(Ev,T_A,7)
 
-=======
-        ta=Envio(Ev,T_A,3)
-        #print ta
->>>>>>> 213e01f4458b1e9456bc3bcfcdc1b0806661996c
+
         if ta.find("Error") == -1:
             #print ta
 
@@ -133,12 +130,8 @@ def Proceso_envio_Usuarios():
             print('Tiempo Para Otro :', time.ctime(Tiempo_activacion))
 
 
-
-
 #Enviar_usuarios_Autorizados_Sin_Internet()
 
-
-Enviar_usuarios_Autorizados_Sin_Internet()
 
 """
 Tiempo_activacion = Time_add_seg(T_Ventana)

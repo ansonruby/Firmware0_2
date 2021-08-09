@@ -23,7 +23,7 @@ Tiempo                  = Control_Fecha.T_Actual
 #               constantes del aplicativo
 #-----------------------------------------------
 CE_V=1          # 0: servidor de prueba 1: las direciones del aplicativo
-P_Mensajes=0    # 0: NO print  1: Print
+P_Mensajes=1    # 0: NO print  1: Print
 
 CE_url = "http:"
 
@@ -72,10 +72,7 @@ CE_rl =[        "/api/access/keyboard_access/index.php",      # Enviar Teclado
 #ID_Tarjeta         = 'ABDB12022020b827eb36f4c1000023' # dispositivo SL_CHI_3
 #ID_Tarjeta         = 'CCCB23102020b827ebc30bd7000001' # dispositivo IF_CHI_01
 #ID_Tarjeta         = 'CCCB23102020b827eb529826000002' # dispositivo IF_CHI_02
-<<<<<<< HEAD
-=======
-#ID_Tarjeta         = 'ABDB25022021b827eb110f29000006' # dispositivo SL_CHI_50
->>>>>>> 213e01f4458b1e9456bc3bcfcdc1b0806661996c
+
 #Dominio_Servidor   = 'sportlife.fuseaccess.com'         # Servidor
 #IP_servidor        = 'http://192.168.1.109'            #servidor de pruebas local
 #IP_servidor         = 'http://192.168.1.113'         # PC
