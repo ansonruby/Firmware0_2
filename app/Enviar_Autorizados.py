@@ -132,7 +132,6 @@ def Proceso_envio_Usuarios():
 
 #Enviar_usuarios_Autorizados_Sin_Internet()
 
-
 """
 Tiempo_activacion = Time_add_seg(T_Ventana)
 print('Timepo activacion :', time.ctime(Tiempo_activacion))

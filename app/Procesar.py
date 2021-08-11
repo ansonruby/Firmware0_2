@@ -1012,7 +1012,7 @@ while 1:
     #---------------------------------------------------------
     # Proceso 2: Actualizacion de usuarios para revicion de usuarios sin internet
     #---------------------------------------------------------
-    Actualizar_Usuarios("12:10 AM") # 12:00 AM     03:59 PM # hora chile  10:00 PM 12:10 AM
+    #Actualizar_Usuarios("12:10 AM") # 12:00 AM     03:59 PM # hora chile  10:00 PM 12:10 AM
 
     #---------------------------------------------------------
     # Proceso 3: Procesamiento del PIN
